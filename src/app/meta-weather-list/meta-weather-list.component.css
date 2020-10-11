@@ -5,19 +5,70 @@
   width: 1100px;
   height: 700px;
   background-image:  url(src/assets/bg.jpg);
+  background-repeat: no-repeat;
 }
 
 .table-widget{
   position: absolute;
   top: 0;
   right: 0;
-  width: 480px;
-  background-color: rgba(0, 0, 0, 0.71);
+  width: 600px;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .mat-cell{
   color: white;
-  background-color: rgba(0, 0, 0, 0.01)
+  background-color: rgba(0, 0, 0, 0.01);
+  padding: 20px;
 }
 .mat-table{
-  background-color: rgba(0, 0, 0, 0.01)
+  background-color: rgba(0, 0, 0, 0.01);
+  border-color: dimgray;
+}
+.mat-row{
+  height: 60px !important;
+  border: 1px solid #0e2140;
+}
+.mat-header-cell{
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}
+
+.title{
+  position: absolute;
+  top: 60px;
+  right: 620px;
+  font-size: 48px;
+}
+.sub-title{
+  text-transform: lowercase;
+  text-align: right;
+  font-size: 36px;
+}
+.temperature{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 120px;
+}
+
+.time{
+  position: absolute;
+  bottom: 20px;
+  font-size: 48px;
+}
+.date{
+  font-size: 18px;
+}
+.pictogramm{
+  display: flex;
+  font-size: 36px;
+  align-content: center;
+  padding: 30px;
+}
+.pictogramm > img {
+  padding-right: 50px;
 }

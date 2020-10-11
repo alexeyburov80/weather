@@ -18,17 +18,20 @@ export class MetaWeatherListComponent implements OnInit {
 
   public dataSource: MatTableDataSource<ConsolidatedWeather>;
   public weatherObject: IWeatherObject;
+  public today: number = Date.now();
   error: any;
-  public displayedColumns: string[] = ['id', 'weather_state_name', 'max_temp'];
+  public displayedColumns: string[] = ['min_temp', 'max_temp', 'the_temp', 'weather_state_name', 'wind_direction', 'humidity'];
   public consolidate: ConsolidatedWeather[];
+
   constructor(public weatherService: WeatherService) {
+    setInterval(() => {this.today = Date.now()}, 1);
   }
 
   ngOnInit() {
     this.weatherService.getWeathers().subscribe(
       weatherObject => {
        this.weatherObject = weatherObject;
-       console.log(this.weatherObject.consolidated_weather);
+       console.log(this.weatherObject);
        this.dataSource = new MatTableDataSource(this.weatherObject.consolidated_weather);
        this.consolidate = this.weatherObject.consolidated_weather;
        this.weatherObject.consolidated_weather.forEach((item, i, arr) => console.log(item));

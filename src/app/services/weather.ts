@@ -6,6 +6,7 @@ export interface IWeatherObject {
   sun_rise: DateTimeFormat;
   sun_set: DateTimeFormat;
   timezone_name: string;
+  parent: Parent;
   sources: Source[];
   title: string;
   location_type: string;

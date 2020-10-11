@@ -1,24 +1,55 @@
 <div class="main">
-<p *ngFor="let item of consolidate">{{ item.weather_state_name }}</p>
 <div class="table-widget">
-<table mat-table [dataSource]="consolidate" matSort>
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'id' | uppercase }} </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  <div *ngIf="consolidate" class="pictogramm"><img src="https://www.metaweather.com/static/img/weather/{{consolidate[0]?.weather_state_abbr}}.svg" width="80px" /> {{consolidate[0]?.weather_state_name}}</div>
+<table mat-table [dataSource]="consolidate">
+  <ng-container matColumnDef="min_temp">
+    <th mat-header-cell *matHeaderCellDef> {{ 'min temp' | uppercase }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.min_temp | number:'2.1-1'}} °C </td>
+  </ng-container>
+
+  <ng-container matColumnDef="max_temp">
+    <th mat-header-cell *matHeaderCellDef> {{ 'max temp' | uppercase }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.max_temp |  number:'2.1-1'}} °C </td>
+  </ng-container>
+
+  <ng-container matColumnDef="the_temp">
+    <th mat-header-cell *matHeaderCellDef> {{ 'the temp' | uppercase   }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.the_temp |  number:'2.1-1'}} °C </td>
   </ng-container>
 
   <ng-container matColumnDef="weather_state_name">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'state name' | uppercase }} </th>
-  <td mat-cell *matCellDef="let element"> {{element.weather_state_name}} </td>
+  <th mat-header-cell *matHeaderCellDef> {{ 'wind speed' | uppercase  }} </th>
+  <td mat-cell *matCellDef="let element"> {{element.wind_speed |  number:'2.1-1'}} </td>
 </ng-container>
 
-  <ng-container matColumnDef="max_temp">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'max_temp' | uppercase }} </th>
-    <td mat-cell *matCellDef="let element"> {{element.max_temp}} </td>
+  <ng-container matColumnDef="wind_direction">
+    <th mat-header-cell *matHeaderCellDef> {{ 'wind direction' | uppercase  }} </th>
+    <td mat-cell *matCellDef="let element">
+      <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><rect fill="none" height="24" width="24" /><path [attr.transform]="'rotate(' + (element.wind_direction|  number:'2.1-1') + ' 12 12)'" d="M5,9l1.41,1.41L11,5.83V22H13V5.83l4.59,4.59L19,9l-7-7L5,9z"/></svg>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="humidity">
+    <th mat-header-cell *matHeaderCellDef> {{ 'humidity' | uppercase  }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.humidity }} %</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
+  <div *ngIf="consolidate" class="temperature">{{consolidate[0]?.the_temp|  number:'2.1-1'}}°C</div>
+  <div class="title">
+    <div>{{ weatherObject?.title }} {{ weatherObject?.location_type }}</div>
+    <div class="sub-title">{{ weatherObject?.parent.title }}</div>
+  </div>
+
+  <div class="time">
+    {{today | date:'hh:mm:ss'}}
+    <div class="date">
+      {{today | date:'fullDate'}}
+    </div>
+  </div>
+
+
 </div>

@@ -1,3 +1,8 @@
 {
-  "server": "https://www.metaweather.com/api/location/2122265/"
+  "london": "https://www.metaweather.com/api/location/44418/",
+  "moscow" :"https://www.metaweather.com/api/location/2122265/",
+  "berlin" :"https://www.metaweather.com/api/location/638242/",
+  "paris" :"https://www.metaweather.com/api/location/615702/",
+  "rio de janeiro" :"https://www.metaweather.com/api/location/455825/",
+  "san francisco" :"https://www.metaweather.com/api/location/2487956/"
 }
