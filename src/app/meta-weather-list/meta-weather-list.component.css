@@ -1,0 +1,23 @@
+.main{
+  position:relative;
+  margin: 10% auto;
+  display: block;
+  width: 1100px;
+  height: 700px;
+  background-image:  url(src/assets/bg.jpg);
+}
+
+.table-widget{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 480px;
+  background-color: rgba(0, 0, 0, 0.71);
+}
+.mat-cell{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.01)
+}
+.mat-table{
+  background-color: rgba(0, 0, 0, 0.01)
+}

@@ -1,0 +1,24 @@
+<div class="main">
+<p *ngFor="let item of consolidate">{{ item.weather_state_name }}</p>
+<div class="table-widget">
+<table mat-table [dataSource]="consolidate" matSort>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'id' | uppercase }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="weather_state_name">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'state name' | uppercase }} </th>
+  <td mat-cell *matCellDef="let element"> {{element.weather_state_name}} </td>
+</ng-container>
+
+  <ng-container matColumnDef="max_temp">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'max_temp' | uppercase }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.max_temp}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+</div>
