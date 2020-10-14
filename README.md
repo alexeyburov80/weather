@@ -1,6 +1,24 @@
 # App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
+##### Input test task for the Frontend stream
+##### UI Weather app
+The project is written in typescript under the angular framework
+
+### Configure
+
+the configuration file is located on the path: ~/assets/config.json
+
+to change the configuration in the weather.service.ts file, select one of the cities, for example **moscow** or **london**
+
+```typescript
+ getWeathers(): Observable<IWeatherObject> {
+    console.log('assets/config.json: ', httpconfig);
+    return this.http.get<IWeatherObject>(httpconfig.moscow, {
+      observe: 'body',
+      responseType: 'json'
+    });
+  }
+```
 
 ## Development server
 
